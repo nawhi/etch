@@ -3,13 +3,35 @@ h1 {
   font-family: 'Montserrat', sans-serif;
 }
 
-#change_gridsize {
+#changebutton {
+  font-family: 'Montserrat', sans-serif;
+  color: white;
   text-align: center;
+  width: 30em;
+  margin: auto;
+  margin-bottom: 30px;
+  
+}
+
+#changebuttontext {
+  border-radius: 8px;
+  color: #FFFFFF;
+  background-color: #4CAF50;
+  width: 50%;
+  margin: auto;
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+#changebuttontext:hover {
+  box-shadow: 0 8px 10px 0 rgba(0,0,0,0.2),
+    0 6px 20px 0 rgba(0,0,0,0.19);
+    transition: 0.2s ease-out;
 }
 
 #container {
-  width: 80%;
-  height: 800px;
+  width: 500px;
+  height: 500px;
   margin: 0px auto;
 }
 
@@ -20,6 +42,5 @@ h1 {
 .gridsquare {
   height: 50px;
   width: 50px;
-  /*margin: 1px 1px;*/
-  background-color: black;
+  padding: 0 0;
 }

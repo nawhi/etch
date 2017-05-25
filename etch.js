@@ -33,4 +33,13 @@ function makeGrid(GRIDSIZE) {
 		$table.append($row);
 	}
 	$('#container').append($table);
+	$('.gridsquare').mouseenter(function(){
+		// Shade it blacker each time
+		var shade = parseFloat($(this).css('backgroundColor').match(/, ([\d\.]*)\)/)[1]);
+		if (shade + 0.1 > 1)
+			shade = 1;
+		else 
+			shade += 0.1;
+		$(this).css({'background-color': 'rgba(0,0,0,' + shade + ')'});
+	});
 }
