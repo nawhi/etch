@@ -3,13 +3,23 @@ h1 {
   font-family: 'Montserrat', sans-serif;
 }
 
+#change_gridsize {
+  text-align: center;
+}
+
 #container {
   width: 80%;
   height: 800px;
   margin: 0px auto;
 }
 
+.gridrow div {
+  float: left;
+}
+
 .gridsquare {
   height: 50px;
   width: 50px;
+  /*margin: 1px 1px;*/
+  background-color: black;
 }

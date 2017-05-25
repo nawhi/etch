@@ -1,20 +1,34 @@
-$(document).ready(makeGrid);
+var DEFAULT_GRID_SIZE = 16;
 
-var GRIDSIZE = 16;
+$(document).ready(function() {
+	// Get starting grid size
+	var gs = getGridSize();
+	makeGrid(gs);
+});
 
-function makeGrid() {
+function getGridSize() {
+	var gs;
+	while(true) {
+		gs = prompt("Enter grid size");
+		if (Number.isInteger(parseInt(gs)))
+			return gs;
+		else
+			return DEFAULT_GRID_SIZE;
+	}
+}
+
+function makeGrid(GRIDSIZE) {
+	var w = parseInt($('#container').width()/GRIDSIZE);
 	console.log("Making grid");
-	for(var i=0; i<GRIDSIZE*GRIDSIZE; i++)
-	{
-		// $newDiv.addTo($('#container'));
-		var $newDiv = $("<div></div>");
-		$newDiv.addClass("gridsquare");
-		$newDiv.attr('id', 'row' + parseInt(i/GRIDSIZE));
-		var w = parseInt($('#container').width()/GRIDSIZE) + 'px';
-		console.log("setting width to " + w);
-		$newDiv.width(w);
-		$newDiv.height(w);
-		$newDiv.attr('border-radius', parseInt(w/5));
-		$('#container').append($newDiv);
+	for(var i=0; i<GRIDSIZE; i++) {
+		var $row = $('<tr class="gridrow" id="row'+i+'"></tr>');
+		for(var j=0; j<GRIDSIZE; j++) {
+			// $newDiv.addTo($('#container'));
+			var $cell = $('<td class="gridsquare"></td>');
+			$cell.height(w);
+			$cell.width(w);
+			$row.append($cell);
+		}
+		$('table.grid').append($row);
 	}
 }
