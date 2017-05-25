@@ -18,17 +18,19 @@ function getGridSize() {
 }
 
 function makeGrid(GRIDSIZE) {
+	$('#container').empty();
 	var w = parseInt($('#container').width()/GRIDSIZE);
-	console.log("Making grid");
+
+	var $table = $('<table></table>');
 	for(var i=0; i<GRIDSIZE; i++) {
 		var $row = $('<tr class="gridrow" id="row'+i+'"></tr>');
 		for(var j=0; j<GRIDSIZE; j++) {
-			// $newDiv.addTo($('#container'));
 			var $cell = $('<td class="gridsquare"></td>');
 			$cell.height(w);
 			$cell.width(w);
 			$row.append($cell);
 		}
-		$('table.grid').append($row);
+		$table.append($row);
 	}
+	$('#container').append($table);
 }
